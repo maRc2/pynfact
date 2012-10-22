@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"PO-Revision-Date: 2012-09-27 18:33+0200\n"
+"Last-Translator: A. Romero <alberteromero+code@gmail.com>\n"
+"Language-Team: English\n"
+"Language: en_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: initnew/templates/base.html.j2:45 templates/entries.html.j2:2
+msgid "Blog"
+msgstr "Blog"
+
+#: initnew/templates/base.html.j2:47 templates/archive.html.j2:2 templates/archive.html.j2:8
+msgid "Archive"
+msgstr "Archive"
+
+#: initnew/templates/base.html.j2:49 templates/tagcloud.html.j2:2 templates/tagcloud.html.j2:8
+msgid "Tags"
+msgstr "Tags"
+
+#: templates/tag.html.j2:3 templates/tag.html.j2:10
+msgid "Entries tagged"
+msgstr "Entries tagged"
+
+# Take in consideration the surrounding spaces
+#: templates/entry.html.j2:29
+msgid " and "
+msgstr " and "
+
+#: templates/archive.html.j2:25 templates/entry.html.j2:14 templates/tag.html.j2:20
+msgid "published on"
+msgstr "published on"
+
+#: templates/entry.html.j2:26
+msgid "This entry is tagged"
+msgstr "This entry is tagged"
+
+#: initnew/templates/base.html.j2:51
+msgid "Feed"
+msgstr "Feed"
+
+#: initnew/templates/base.html.j2:69
+msgid "Content licensed under"
+msgstr "Content licensed under"
+
+#: initnew/templates/base.html.j2:19
+msgid "Recent posts"
+msgstr "Recent posts"
+
+#: templates/entries.html.j2:28 templates/entries.html.j2:29 templates/entries.html.j2:33 templates/entries.html.j2:34
+msgid "Previous"
+msgstr "Previous"
+
+#: templates/entries.html.j2:45 templates/entries.html.j2:46
+msgid "Next"
+msgstr "Next"
+

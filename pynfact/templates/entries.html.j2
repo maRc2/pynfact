@@ -1,0 +1,66 @@
+{% extends "base.html.j2" %}
+{% block title %}{% trans %}Blog{% endtrans %}{% endblock %}
+
+{% block body %}
+
+<section class="overview">
+    <section class="hyphenate prettify">
+    {%- if entries %}
+        {%- for entry in entries %}
+        <div class="entry-overview">
+            <div class="date">{{ entry.date }}</div>
+            <div class="detail">
+                <a href=" {{entry.uri }}"
+                   title="{{ entry.title }}"
+                   ><strong>{{ entry.title }}</strong></a>
+               {%- if entry.summary %}
+               &mdash; <div class="summary">{{ entry.summary }}</div>
+               {%- endif %}
+            </div>
+        </div>
+        {%- endfor %}
+
+        {%- if total_pages > 1 %}
+        <!-- PAGER -->
+        <div class="paginator">
+            {%- if cur_page == 2 %}
+            <span><a href="{{ base_uri }}"
+                     title="{% trans %}Previous{% endtrans %}"
+                    >&laquo;{% trans %}Previous{% endtrans %}</a></span>
+            {%- endif %}
+            {%- if cur_page > 2 %}
+            <span><a href="{{ base_uri }}page/{{ cur_page - 1 }}"
+                     title="{% trans %}Previous{% endtrans %}"
+                    >&laquo;{% trans %}Previous{% endtrans %}</a></span>
+            {%- endif %}
+            {%- if cur_page > 1 %}
+            <span class="separator">&mdash;</span>
+            {%- endif %}
+
+            <strong class="page_number">{{ cur_page }}</strong>
+
+            {%- if cur_page < total_pages %}
+            <span class="separator">&mdash;</span>
+            <span><a href="{{ base_uri }}page/{{ cur_page + 1 }}"
+                     title="{% trans %}Next{% endtrans %}"
+                    >{% trans %}Next{% endtrans %}&raquo;</a></span>
+            {%- endif %}
+        </div>
+        {%- endif %}
+    {%- else %}
+    <!-- No entries -->
+    <h2>nichts, nada, niente, nothing, nix, rien, nihil, niks,
+        asgjë, ništa, nic, nič, nimic, noget, niets, nenio, miski,
+        wala, mikään ei, res, semmi, ekkert, nekas, niekas,
+        ingenting, không, 何も, 무, 無, ничего, ништо, ништа,
+        нічога, нічого, ոչինչ, нищо, τίποτα,
+        <span class="rtl">שום דבר</span>,
+        <span class="rtl">لا شيء</span>,
+        Ø, {},...</h2>
+    {%- endif %}
+
+    </section>
+</section>
+
+{% endblock %}
+

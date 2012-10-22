@@ -1,0 +1,169 @@
+/* vim:ft=css:fenc=utf-8:fdm=marker:
+ *
+ * Multilanguage paragraphs. There are *several* languages not
+ * contempled... yet.
+ *
+ * Author: A. Romero <http://alberteromero.es> (blog)
+ *                   <http://letrashistoriadas.es>
+ *
+ * This CSS file is licensed:
+ *
+ *   License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Spain
+ *   <http://creativecommons.org/licenses/by-nc-sa/3.0/es/>
+ *   (CC by-nc-sa) A. Romero.
+ *
+ * This license is applied only to this CSS one-file document, and not
+ * other articles, documents, data or media in the site, wich unless
+ * specified, they are **all** under:
+ *
+ *   License Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Spain
+ *   <http://creativecommons.org/licenses/by-nc-nd/3.0/es/>
+ *   (CC by-nc-nd) A. Romero
+ *
+ *
+ * Samples:
+ *
+ *   - Ordinary paragraph:
+ *       Indentation of the first line of each paragraph, all text
+ *       justified except the last line.
+ *
+ *            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ *          Nullam fermentum, sapien  sit amet tempus vulputate, ligu-
+ *          la lectus  hendrerit sem, eu tristique nunc  nunc sit amet
+ *          justo. Cras convallis elementum eros ut condimentum.
+ *            Sed quis lacus nec neque sollicitudin cursus. Donec feu-
+ *          giat, velit in tempor euismod, velit odio congue felis, ut
+ *          congue nunc nibh auctor nis.
+ *
+ *   - English:
+ *       Ordinary paragrah style without indentation of first line of
+ *       the first paragraph.
+ *
+ *          Lorem ipsum  dolor sit amet,  consectetur adipiscing elit.
+ *          Nullam fermentum, sapien  sit amet tempus vulputate, ligu-
+ *          la lectus  hendrerit sem, eu tristique nunc  nunc sit amet
+ *          justo. Cras convallis elementum eros ut condimentum.
+ *            Sed quis lacus nec neque sollicitudin cursus. Donec feu-
+ *          giat, velit in tempor euismod, velit odio congue felis, ut
+ *          congue nunc nibh auctor nis.
+ *
+ *   - French:
+ *       All lines indented except the first line of each paragraph.
+ *
+ *          Lorem ipsum  dolor sit amet,  consectetur adipiscing elit.
+ *            Nullam fermentum, sapien  sit amet tempus vulputate, li-
+ *            gula lectus  hendrerit sem,  eu tristique nunc  nunc sit
+ *            amet justo.  Cras convallis elementum  eros ut condimen-
+ *            tum.
+ *          Sed  quis  lacus  nec  neque sollicitudin  cursus.   Donec
+ *            feugi- at,  velit in  tempor euismod, velit  odio congue
+ *            felis, ut congue nunc nibh auctor nis.
+ *
+ *   - Spanish:
+ *       Ordinary paragraph but the last line is centered.
+ *
+ *         The _real_ Spanish paragraph have not only the last line
+ *          centered, but the last ones, in a decreasing inverted
+ *             triangle shape, and only the last paragraph of
+ *                the last chapter, much like this one. But
+ *                   that's just not possible by now with
+ *                       this CSS file or CSS itself.
+ *                                  Sorry.
+ *
+ *            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ *          Nullam fermentum, sapien sit amet tempus vulputate, ligula
+ *          lectus  hendrerit sem,  eu  tristique nunc  nunc sit  amet
+ *             justo. Cras convallis elementum eros ut condimentum.
+ *            Sed quis lacus nec neque sollicitudin cursus. Donec feu-
+ *          giat, velit in tempor euismod, velit odio congue felis, ut
+ *                         congue nunc nibh auctor nis.
+ *
+ *   - German:
+ *       All lines are justified, including the last line.
+ *
+ *          Lorem ipsum dolor sit amet, consectetur adipiscing
+ *          elit.   Nullam fermentum,  sapien sit  amet tempus
+ *          vulputate,   ligula  lectus   hendrerit   sem,  eu
+ *          tristique   nunc  nunc   sit  amet   justo.   Cras
+ *          convallis   elementum   eros    ut    condimentum.
+ *
+ *           Sed  quis  lacus  nec neque  sollicitudin  cursus.
+ *          Donec feugiat, velit in tempor euismod, velit odio
+ *          congue felis,  ut  congue  nunc  nibh  auctor nis.
+ *
+ * Spanish and German paragraphs are accepted as described by
+ * historical reasons, but nowadays the last line may be aligned left,
+ * i.e. does not require to be cetered nor justified. Thus, Spanish
+ * paragraph style is the same as ordinary, and German uses the HTML
+ * default standards.
+ *
+ * This CSS is intended to be used on sites that uses hyphenation for
+ * better results.
+ *
+ * Hyphenate.js: http://tinyurl.com/3gkcudv
+ */
+
+/* Ordinary paragraph */ /* First line indented + justified */
+/* IMPORTANT: Other paragraphs inherit this one, so this must stay at
+ *            the top */
+p {
+    margin: 0;
+    hyphens: auto; /* Just in case */
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
+/* German */ /* HTML default + justified */
+*[lang|="de"] p {
+    margin: 1.12em 0;
+    text-indent: 0;
+}
+
+/* French */ /* everything indented except first line */
+*[lang|="fr"] p {
+    margin: 0 0 0 1.5em;
+    text-indent: -1.5em
+}
+
+/* English */ /* First line not indented.*/
+*[lang|="en"] p:first-child,
+/* *[lang|="en"] ul + p, *[lang|="en"] ul + dl, */
+*[lang|="en"] h3 + p, *[lang|="en"] h4 + p,
+*[lang|="en"] h5 + p, *[lang|="en"] h6 + p {
+    margin: 0;
+    text-indent: 0;
+}
+
+/* Spanish */
+/* Last line ceneted unless is the first! */
+/* *[lang|="es"] p:last-child { */
+
+/* Last paragraph of the last section centered */
+*[lang|="es"] section:last-child p:last-child {
+ /* text-align-last: center; */
+    -moz-text-align-last: center;
+    -webkit-text-align-last: center;
+
+ /* text-align-first: start; */
+    -moz-text-align-first: start;
+    -webkit-text-align-first: start;
+}
+
+
+/* Special cases/exceptions */
+p.no_indent {
+    text-indent: 0 !important;
+}
+
+p.no_last {
+/*
+    text-align-last: auto;
+    text-align-first: start;
+*/
+    -moz-text-align-last: auto;
+    -moz-text-align-first: start;
+
+    -webkit-text-align-last: auto;
+    -webkit-text-align-first: start;
+}
+

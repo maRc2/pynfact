@@ -1,0 +1,90 @@
+{#- DO NOT CHANGE THIS FIRST FOUR LINES OF JINJA CODE! -#}
+{%- if blog.base_uri != '' %}{%- set base_uri = '/' + blog.base_uri + '/' -%}
+{%- else %}{%- set base_uri = '/' -%}
+{%- endif -%}
+<!DOCTYPE html>
+
+<html lang="{{ blog.lang }}">
+    <head>
+        <meta name="author" content="{{ blog.author }}">
+        <meta name="description" content="{{ blog.description }}">
+        <meta name="generator" content="Py'nFact">
+        <meta charset="{{ blog.encoding }}">
+
+        <title>{% block title %}{% endblock %} &mdash; {{ blog.author }}</title>
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic&amp;subset=latin,latin-ext" type="text/css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek,greek-ext" type="text/css">
+        <link rel="stylesheet" href="{{ base_uri }}static/css/reset.css" type=text/css>
+        <link rel="stylesheet" href="{{ base_uri }}static/css/reg_quotes.css" type=text/css>
+        <link rel="stylesheet" href="{{ base_uri }}static/css/reg_paragraphs.css" type=text/css>
+        <link rel="stylesheet" href="{{ base_uri }}static/css/style.css" type=text/css>
+    {#- <link rel="alternate"  href="{{ base_uri }}feed.xml" title="{% trans %}Recent posts{% endtrans %}" type="application/rss+xml"> #}
+        <link rel="alternate"  href="{{ base_uri }}atom.xml" title="{% trans %}Recent posts{% endtrans %}" type="application/atom+xml">
+
+        <script src="{{ base_uri }}static/js/modernizr-1.7.min.js"></script>
+        <script src="{{ base_uri }}static/js/hyphenator-4.0.0.js"></script>
+        <script>/* Hyphenator.config({minwordlength : 6}); */ Hyphenator.run();</script>
+        <script src="{{ base_uri }}static/js/jsprettify-20100525.js"></script>
+        <script>window.jsprettify.run();</script>
+    </head>
+
+
+    <body id="top" class="prettify">
+        <div id="container">
+
+            <!-- HEADER -->
+            <header role="banner">
+                <div class="main_title">
+                    <a rel="author" href="{{ base_uri }}about/"
+                       title="{{ blog.author }}">{{ blog.author }}</a>
+                </div>
+
+                <nav class="navigator" id="nav1">
+                    <ul>
+                        <li><a href="{{ base_uri }}"
+                               title="{% trans %}Blog{% endtrans %}">{% trans %}Blog{% endtrans %}</a>
+                        <li><a href="{{ base_uri }}archive/"
+                               title="{% trans %}Archive{% endtrans %}">{% trans %}Archive{% endtrans %}</a>
+                        <li><a href="{{ base_uri }}tags/"
+                               title="{% trans %}Tags{% endtrans %}">{% trans %}Tags{% endtrans %}</a>
+                    {#- <li><a href="{{ base_uri }}feed.xml" #}
+                        <li><a href="{{ base_uri }}atom.xml"
+                               rel="alternate"
+                               title="{% trans %}Feed{% endtrans %}">{% trans %}Feed{% endtrans %}</a>
+                    </ul>
+                </nav>
+            </header>
+
+
+            <!-- CONTENT -->
+            <section class="body">
+                {% block body %}{% endblock %}
+            </section>
+
+
+            <!-- FOOTER -->
+            <hr>
+            <footer>
+                <aside>
+                <p>
+                    <a class="invisible"
+                       href="https://creativecommons.org/licenses/by-nc-sa/3.0/"
+                       title="CC by-nc-sa"
+                       rel="license">{% trans %}Content licensed under{% endtrans %}
+                       Creative Commons Attribution-NonCommercial-ShareAlike 3.0
+                       Unported</a>
+
+                <p>
+                    &copy;
+                    <a class="invisible"
+                       href="{{ base_uri }}about/"
+                       title="{{ blog.author }}"
+                       rel="author">{{ blog.author }}</a>, 2012
+                </aside>
+            </footer>
+
+        </div>
+    </body>
+</html>
+

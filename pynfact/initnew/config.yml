@@ -1,0 +1,20 @@
+---
+site_name: Your WEBSITE name
+site_description: This website is awesome.
+author: Unnamed Author
+canonical_uri: http://your-site-uri/
+
+disqus: yes
+
+locale: en_US
+lang: en
+
+max_entries: 10
+
+datefmt_long: "%c"
+datefmt_short: "%d-%b-%Y"
+datefmt_mini: "%F"
+
+extra_dirs: ['media']
+...
+

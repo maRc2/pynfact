@@ -1,0 +1,14 @@
+_build
+_tmp_
+__pycache__
+*~
+*.swp
+*.swo
+*.out
+*.lock
+*.pyc
+*.pyo
+*.egg-info
+*.DS_Store
+*.installed.cfg
+

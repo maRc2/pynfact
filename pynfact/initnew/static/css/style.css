@@ -1,0 +1,521 @@
+/* vim:ft=css:fenc=utf-8:fdm=marker:
+ *
+ * Default style for Py'nFact static web generator, based on
+ * A. Ronacher's personal blog style (BSD 3-cl.)
+ *
+ * Keywords: simple, one column, light, minimalistic, white, soft, tagcloud
+ *
+ * A. Romero, 2012 <http://alberteromero.es> (blog)
+ */
+
+/* @import("reset.css"); */
+
+
+/* General style {{{ */
+body {
+    background-color: #fff;
+    color: #000;
+    font: 17px/25px 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+
+.rtl { direction: rtl !important; }
+.ltr { direction: ltr !important; }
+.left { float: left !important; }
+.right { float: right !important; }
+
+.hidden { display: none !important; }
+
+.sc  { font-variant: small-caps; } /*color: #000 !important; }*/
+
+/* Highlight references */
+:target {
+    background-color: #ffd;
+}
+
+/* Small caps. */
+.acronym, .century, .chapter {
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-size: 18px;
+}
+
+/* Private notice */
+.private {
+    color: #c03;
+    font-variant: small-caps;
+    text-transform: lowercase;
+}
+
+/* Strong font */
+strong { font-weight: 400; }
+
+/* Italic within italic is normal style */
+em > em { font-style: normal; }
+em > em > em { font-style: italic; }
+
+/* Units *never* in italics even when inside an italicized block.
+ * Always, **always**, **ALWAYS** in normal font (RAE has spoken!) */
+.unit { font-style: normal !important; }
+
+blockquote {
+    text-align: justify;
+    font-size: 15.25px;
+    margin: 17px 19px;
+ /* font-size: 0.85em; */
+}
+
+
+li { display: list-item; }
+ul li { list-style: disc; }
+ol, dl { margin: 1.12em 0; }
+ol, ul, dd  { margin-left: 40px; }
+ol { list-style-type: decimal; }
+
+sub { vertical-align: sub }
+sup { vertical-align: super }
+big { font-size: 1.17em }
+small, sub, sup { font-size: .83em }
+
+ins { text-decoration: underline }
+del { text-decoration: line-through }
+/*}}}*/
+
+
+/* Links {{{*/
+a {
+    color: #000;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+a.invisible {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c03;
+}
+
+/*a.external:after,*/
+a[href^="mailto"]:after {
+    content: '\2709'; /* Envelope (✉) */
+ /* font-size: 75%; */
+    font-size: 95%;
+}
+
+a[href^="http"]:after,
+a[href^="ftp"]:after {
+    content: '\2197'; /* NE arrow (↗) */
+ /* content: '\1f517';*/ /* Link symbol (🔗) */
+    font-size: 75%;
+}
+
+a.invisible:after {
+    content: '';
+}
+
+/* Do not break article links */
+section.entry a {
+    white-space: nowrap;
+}
+/* }}} */
+
+
+/* Entries overview {{{*/
+div.entry-overview {
+    margin: 25px 125px 25px 100px;
+}
+
+div.entry-overview strong,
+div.entry-overview div.summary,
+div.entry-overview div.summary p {
+    display: inline;
+    line-height: 25px;
+}
+
+div.entry-overview div.detail strong {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+div.entry-overview div.detail a {
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+div.entry-overview div.summary,
+div.entry-overview div.date,
+div.entry-overview div.summary p {
+    margin: 0;
+    padding: 0;
+}
+
+div.entry-overview div.detail {
+    margin-left: 140px;
+}
+
+div.entry-overview div.date {
+    color: #c03;
+    float: left; width: 120px;
+    font-size: 14px;
+    text-align: right;
+}
+
+div.paginator {
+    margin: 36px 0 0 0;
+    text-align: center;
+}
+
+div.paginator strong {
+    font-style: italic;
+    font-weight: normal;
+}
+
+div.paginator .separator {
+    margin: 0 12px;
+}
+/*}}}*/
+
+
+/* Headlines {{{*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color: #222;
+}
+
+h1 a, h2 a, h3 a, h4 a,h5 a, h6 a {
+    text-decoration: none;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
+    text-decoration: underline;
+}
+
+h1.title {
+    margin-bottom: 0;
+    width: 560px;
+}
+
+h1, h2 {
+    margin: 25px 0 10px 0;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 52px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+}
+/*}}}*/
+
+
+/* Layout elements {{{*/
+div#container {
+    width: 740px;
+    margin: 48px auto;
+    padding: 0;
+}
+
+div#container > header {
+    height: 25px;
+    margin-bottom: 42px;
+}
+
+div#container > header > div.main_title {
+    float: left;
+}
+
+div#container > header > nav.navigator a {
+    text-transform: lowercase;
+}
+
+div#container > header > nav {
+    float: right;
+}
+
+div#container > header > nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+div#container > header > nav ul li {
+    display: inline;
+    margin: 0 2px;
+    padding: 0;
+}
+
+div#container > section.body  {
+    clear: both;
+    margin-bottom: 16px; /* 16px = 1em */
+}
+
+div#container > footer {
+    color: #555;
+    font-size: 16px;
+    text-align: center;
+}
+
+div#container > footer p {
+    margin: 0;
+    text-align: center;
+}
+
+section.entry h2,
+section.entry h3,
+section.entry h4,
+section.entry h5,
+section.entry h6 {
+    margin-top: 16px; /* 16px = 1em */
+    margin-bottom: 5px; /* ~1ex*/
+}
+/*}}}*/
+
+
+/* Blockquotes, lists and other Margins and stuff {{{*/
+/* Two break lines is an context change, i.e. 'asterism' */
+section.entry div.line-block div + div:before {
+    content: '\2042'; /* asterism (⁂) */
+    /* content: '* * *' */
+    margin-top: 0;
+}
+            
+section.entry div.line-block div + div {
+    border: 0;
+    height: auto;
+    margin: 0 0 1em 0; /* <-- correction so this will be *centered* */
+    text-align: center;
+    width: auto;
+}
+
+div#disqus_thread {
+    margin-top: 16px; /* 16px = 1em */
+}
+
+
+dt {
+ /* margin: 25px 0 16px 0; */
+    margin: 25px 0 0 0;
+    padding: 0;
+}
+
+dd {
+ /* margin: 16px 0 25px 40px; */
+    margin: 0 0 25px 40px;
+    padding: 0;
+}
+
+
+ol {
+    list-style-type: decimal;
+}
+
+ul, ol {
+    margin-left: 40px;
+}
+
+ul ol, ol ul, ul ul, ol ol {
+    margin: 10px 0;
+    padding: 0 0 0 40px;
+}
+
+li {
+    padding: 0;
+}
+
+li p {
+    margin: 0;
+    text-indent: 0 !important;
+}
+
+header + section > ol:first-child,
+header + section > ul:first-child,
+header + section > p:first-child {
+    margin-top: 1em;
+}
+
+h1 + p.date {
+    text-indent: 0;
+}
+h1 + p.date time.timeago:before { content: ', ' }
+h1 + p.date time.timeago:after { content: '' }
+/*}}}*/
+
+
+/* Code formatting {{{*/
+span.username,
+pre, code, tt   {
+    font-family: 'Ubuntu Mono', 'Consolas', 'Deja Vu Sans Mono',
+                 'Bitstream Vera Sans Mono', 'Monaco', 'Courier New',
+                 monospace;
+ /* font-size: 15px; */ /* ~0.9em / ~11pt */
+    font-size: 17px;
+}
+
+pre {
+    background: none;
+    line-height: 1.3;
+    padding: 0;
+}
+
+code, tt {
+    background: #eee;
+}
+/*}}}*/
+
+
+/* Tables {{{*/
+table {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid #ddd;
+    padding: 2px 12px;
+}
+/*}}}*/
+
+
+/* Images & figures (alignment things) {{{*/
+figure {
+    margin: 1em 0;
+}
+
+figcaption {
+    font-size: 0.75em;
+}
+
+figure > img {
+    margin: 0;
+}
+
+figure.align-center > img,
+figure > img.align-center {
+    width: 100%;
+}
+figure.align-center > figcaption,
+figure > img.align-center + figcaption {
+    text-align: center;
+}
+
+figure.align-right > img,
+figure > img.align-right {
+    float: right;
+    margin-left: 0.85em;
+}
+figure.align-right > figcaption,
+figure.align-right > img + figcaption,
+figure > img.align-right + figcaption {
+    text-align: right;
+}
+
+figure.align-left > img,
+figure > img.align-left {
+    float: left;
+    margin-right: 0.85em;
+}
+figure.align-left > figcaption,
+figure.align-left > img + figcaption,
+figure > img.align-left + figcaption {
+    text-align: left;
+}
+/*}}}*/
+
+
+/* Tags {{{*/
+article.entry p.tags {
+    margin-top: 36px;
+    text-align: right !important;
+    text-indent: 0;
+}
+
+ul.tagcloud {
+    font-size: 16px;
+    list-style: none;
+    margin: 36px 0;
+    padding: 0;
+}
+
+ul.tagcloud li {
+    display: inline;
+    margin: 0;
+    padding: 0 10px;
+}
+
+ul.tagcloud a {
+    white-space: nowrap;
+}
+
+/*}}}*/
+
+
+/* Footnotes {{{*/
+div.footnote {
+    font-size: 15px;
+}
+
+sup a {
+    text-decoration: none;
+}
+
+div.footnote a[href^="#fnref"] {
+    text-decoration: none;
+}
+
+div.footnote a:after {
+    content: '';
+}
+
+div.footnote a {
+    font-weight: inherit;
+    text-decoration: underline;
+}
+
+div.footnote hr {
+    display: none;
+}
+
+div.footnote:before {
+    content: '\2029' /* paragraph separator */
+}
+
+div.footnote p {
+    text-indent: 0;
+}
+/*}}}*/
+
+
+/* Separators {{{*/
+section.entry hr {
+    border: 0;
+    height: auto;
+    text-align: center;
+    width: auto;
+}
+
+/*
+section.entry hr:after {
+    content: '\2042';
+}
+*/
+
+hr {
+    border-color: #555;
+    border-width: 1px 0 0 0;
+}
+
+body > div#container > hr {
+    margin-top: 45px;
+    margin-bottom: 5px;
+}
+/*}}}*/
+

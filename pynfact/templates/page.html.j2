@@ -1,0 +1,18 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ page.raw_title }}{% endblock %}
+
+{% block body %}
+
+<article class="page">
+    <header>
+        <h1 class="title">{{ page.title }}</h1>
+    </header>
+
+    <section class="page hyphenate prettify">
+        {{ page.content }}
+    </section>
+
+</article>
+
+{% endblock %}
+

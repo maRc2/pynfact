@@ -1,0 +1,30 @@
+{% extends "base.html.j2" %}
+{% block title %}
+{% trans %}Entries tagged{% endtrans %} «{{ tag_name }}»
+{% endblock %}
+
+{% block body %}
+
+<article class="page">
+    <header>
+        <h1>{% trans %}Entries tagged{% endtrans %}
+            <q class="nowrap">{{ tag_name }}</q></h1>
+    </header>
+
+    <section class="page hyphenate prettify">
+        {%- if entries %}
+        <ul>
+            {%- for entry in entries %}
+            <li><a href="{{ base_uri}}{{ entry.uri }}"
+                   title="{{ entry.title }}">{{ entry.title }}</a>,
+                <!-- {% trans %}published on{% endtrans %} -->
+                {{ entry.date }}
+            {%- endfor %}
+        </ul>
+        {%- endif %}
+    </section>
+
+</article>
+
+{% endblock %}
+

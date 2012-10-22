@@ -1,0 +1,49 @@
+{% extends "base.html.j2" %}
+{% block title %}{% trans %}Archive{% endtrans %}{% endblock %}
+
+{% block body %}
+
+<article class="page">
+    <header>
+        <h1>{% trans %}Archive{% endtrans %}</h1>
+    </header>
+
+    <section class="page hyphenate prettify">
+        {%- if archive %}
+        <ul>
+            {%- for year in archive | dictsort %}
+            <li>{{ year[0] }}
+                <ul>
+                {%- for month in year[1] | dictsort %}
+                    <!--
+                    <li>{{ month[0] | striptags }}
+                        <ul>
+                    -->
+                        {%- for entry in month[1] %}
+                        <li><a href="{{ base_uri }}{{ entry.uri }}"
+                               title="{{ entry.title }}">{{ entry.title }}</a>,
+                            <!-- {% trans %}published on{% endtrans %} -->
+                            {{ entry.date }}
+                        {%- endfor %}
+                    <!-- </ul> -->
+                {%- endfor %}
+                </ul>
+            {%- endfor %}
+        </ul>
+        {%- else %}
+        <!-- No entries -->
+        <h2>nichts, nada, niente, nothing, nix, rien, nihil, niks,
+            asgjë, ništa, nic, nič, nimic, noget, niets, nenio, miski,
+            wala, mikään ei, res, semmi, ekkert, nekas, niekas,
+            ingenting, không, 何も, 무, 無, ничего, ништо, ништа,
+            нічога, нічого, ոչինչ, нищо, τίποτα,
+            <span class="rtl">שום דבר</span>,
+            <span class="rtl">لا شيء</span>,
+            Ø, {},...</h2>
+        {%- endif %}
+    </section>
+
+</article>
+
+{% endblock %}
+

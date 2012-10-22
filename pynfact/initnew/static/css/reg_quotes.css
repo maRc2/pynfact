@@ -1,0 +1,255 @@
+/* vim:ft=css:fenc=utf-8:fdm=marker:
+ *
+ * Multilanguage quotes. There are several languages not
+ * contempled... yet.
+ *
+ * Author: A. Romero <http://alberteromero.es> (blog)
+ *                   <http://letrashistoriadas.es>
+ *
+ * This CSS file is licensed:
+ *
+ *   License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Spain
+ *   <http://creativecommons.org/licenses/by-nc-sa/3.0/es/>
+ *   (CC by-nc-sa) A. Romero.
+ *
+ * This license is applied only to this CSS one-file document, and not
+ * other articles, documents, data or media in the site, wich unless
+ * specified, they are **all** under:
+ *
+ *   License Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Spain
+ *   <http://creativecommons.org/licenses/by-nc-nd/3.0/es/>
+ *   (CC by-nc-nd) A. Romero
+ *
+ *
+ * Samples:
+ *   AF, EN; EO, GA, ID, NL, SV, TH: “inside ‘insider’ inside”
+ *   HR: „inside ‚insider’ inside”
+ *   SQ: „inside ‘insider’ inside”
+ *   CA, GL, EL, ES, PT: «inside “insider ‘insidest’ insider” inside»
+ *   DA: »inside ›insider ‚insidest’ insider‹ inside«
+ *   DE, IS, LT, SK, SL: „inside ‚insider‘ inside“
+ *   EU: «inside ‹insider ‘insidest’ insider› inside»
+ *   FI: ”inside ’insider’ inside”
+ *   FR: « inside ‹ insider ‘insidest’ insider › inside »
+ *   IT: «inside ‹insider ‘insidest’ insider› inside»
+ *   LV, RO: ‚inside «insider» inside’
+ *   NO: «inside ’insider’ inside»
+ *   SR: „inside ’insider‘ inside“
+ *   RU: «inside ‚insider’ inside»
+ *   CY: ‘inside “insider” inside’
+ */
+
+
+/* Afrikaans */
+*[lang~='af'] q:before,     q[lang~='af']:before     { content: '\201C'; }
+*[lang~='af'] q:after,      q[lang~='af']:after      { content: '\201D'; }
+*[lang~='af'] q q:before,   q[lang~='af'] q:before   { content: '\2018'; }
+*[lang~='af'] q q:after,    q[lang~='af'] q:after    { content: '\2019'; }
+
+/* Albanese */
+*[lang~='sq'] q:before,     q[lang~='sq']:before     { content: '\201E'; }
+*[lang~='sq'] q:after,      q[lang~='sq']:after      { content: '\201C'; }
+*[lang~='sq'] q q:before,   q[lang~='sq'] q:before   { content: '\2018'; }
+*[lang~='sq'] q q:after,    q[lang~='sq'] q:after    { content: '\2019'; }
+
+/* Catalan */
+*[lang~='ca'] q:before,     q[lang~='ca']:before     { content: '\00AB'; }
+*[lang~='ca'] q:after,      q[lang~='ca']:after      { content: '\00BB'; }
+*[lang~='ca'] q q:before,   q[lang~='ca'] q:before   { content: '\201C'; }
+*[lang~='ca'] q q:after,    q[lang~='ca'] q:after    { content: '\201D'; }
+*[lang~='ca'] q q q:before, q[lang~='ca'] q q:before { content: '\2018'; }
+*[lang~='ca'] q q q:after,  q[lang~='ca'] q q:after  { content: '\2019'; }
+
+/* Danish */
+*[lang~='da'] q:before,     q[lang~='da']:before     { content: '\00BB'; }
+*[lang~='da'] q:after,      q[lang~='da']:after      { content: '\00AB'; }
+*[lang~='da'] q q:before,   q[lang~='da'] q:before   { content: '\201A'; }
+*[lang~='da'] q q:after,    q[lang~='da'] q:after    { content: '\203A'; }
+*[lang~='da'] q q q:before, q[lang~='da'] q q:before { content: '\201A'; }
+
+/* Dutch */
+*[lang~='nl'] q:before,     q[lang~='nl']:before     { content: '\201C'; }
+*[lang~='nl'] q:after,      q[lang~='nl']:after      { content: '\201D'; }
+*[lang~='nl'] q q:before,   q[lang~='nl'] q:before   { content: '\2018'; }
+*[lang~='nl'] q q:after,    q[lang~='nl'] q:after    { content: '\2019'; }
+
+/* Finish */
+*[lang~='fi'] q:before,     q[lang~='fi']:before     { content: '\201D'; }
+*[lang~='fi'] q:after,      q[lang~='fi']:after      { content: '\201D'; }
+*[lang~='fi'] q q:before,   q[lang~='fi'] q:before   { content: '\2019'; }
+*[lang~='fi'] q q:after,    q[lang~='fi'] q:after    { content: '\2019'; }
+
+/* German */
+*[lang~='de'] q:before,     q[lang~='de']:before     { content: '\201E'; }
+*[lang~='de'] q:after,      q[lang~='de']:after      { content: '\201C'; }
+*[lang~='de'] q q:before,   q[lang~='de'] q:before   { content: '\201A'; }
+*[lang~='de'] q q:after,    q[lang~='de'] q:after    { content: '\2018'; }
+
+/* Spanish */
+*[lang~='es'] q:before,     q[lang~='es']:before     { content: '\00AB'; }
+*[lang~='es'] q:after,      q[lang~='es']:after      { content: '\00BB'; }
+*[lang~='es'] q q:before,   q[lang~='es'] q:before   { content: '\201C'; }
+*[lang~='es'] q q:after,    q[lang~='es'] q:after    { content: '\201D'; }
+*[lang~='es'] q q q:before, q[lang~='es'] q q:before { content: '\2018'; }
+*[lang~='es'] q q q:after,  q[lang~='es'] q q:after  { content: '\2019'; }
+
+/* English */
+*[lang~='en'] q:before,     q[lang~='en']:before     { content: '\201C'; }
+*[lang~='en'] q:after,      q[lang~='en']:after      { content: '\201D'; }
+*[lang~='en'] q q:before,   q[lang~='en'] q:before   { content: '\2018'; }
+*[lang~='en'] q q:after,    q[lang~='en'] q:after    { content: '\2019'; }
+
+/* Esperanto */
+*[lang~='eo'] q:before,     q[lang~='eo']:before     { content: '\201C'; }
+*[lang~='eo'] q:after,      q[lang~='eo']:after      { content: '\201D'; }
+*[lang~='eo'] q q:before,   q[lang~='eo'] q:before   { content: '\2018'; }
+*[lang~='eo'] q q:after,    q[lang~='eo'] q:after    { content: '\2019'; }
+
+/* Basque */
+*[lang~='eu'] q:before,     q[lang~='eu']:before     { content: '\00AB'; }
+*[lang~='eu'] q:after,      q[lang~='eu']:after      { content: '\00BB'; }
+*[lang~='eu'] q q:before,   q[lang~='eu'] q:before   { content: '\203A'; }
+*[lang~='eu'] q q:after,    q[lang~='eu'] q:after    { content: '\2039'; }
+*[lang~='eu'] q q q:before, q[lang~='eu'] q q:before { content: '\2018'; }
+*[lang~='eu'] q q q:after,  q[lang~='eu'] q q:after  { content: '\2019'; }
+
+/* French */
+*[lang~='fr'] q:before,     q[lang~='fr']:before     { content: '\00AB\A0'; }
+*[lang~='fr'] q:after,      q[lang~='fr']:after      { content: '\A0\00BB'; }
+*[lang~='fr'] q q:before,   q[lang~='fr'] q:before   { content: '\203A\A0'; }
+*[lang~='fr'] q q:after,    q[lang~='fr'] q:after    { content: '\A0\2039'; }
+*[lang~='fr'] q q q:before, q[lang~='fr'] q q:before { content: '\2018';    }
+*[lang~='fr'] q q q:after,  q[lang~='fr'] q q:after  { content: '\2019';    }
+
+/* Galician */
+*[lang~='gl'] q:before,     q[lang~='gl']:before     { content: '\00AB'; }
+*[lang~='gl'] q:after,      q[lang~='gl']:after      { content: '\00BB'; }
+*[lang~='gl'] q q:before,   q[lang~='gl'] q:before   { content: '\201C'; }
+*[lang~='gl'] q q:after,    q[lang~='gl'] q:after    { content: '\201D'; }
+*[lang~='gl'] q q q:before, q[lang~='gl'] q q:before { content: '\2018'; }
+*[lang~='gl'] q q q:after,  q[lang~='gl'] q q:after  { content: '\2019'; }
+
+/* Greek */
+*[lang~='el'] q:before,     q[lang~='el']:before     { content: '\00AB'; }
+*[lang~='el'] q:after,      q[lang~='el']:after      { content: '\00BB'; }
+*[lang~='el'] q q:before,   q[lang~='el'] q:before   { content: '\201C'; }
+*[lang~='el'] q q:after,    q[lang~='el'] q:after    { content: '\201D'; }
+*[lang~='el'] q q q:before, q[lang~='el'] q q:before { content: '\2018'; }
+*[lang~='el'] q q q:after,  q[lang~='el'] q q:after  { content: '\2019'; }
+
+/* Croatian */
+*[lang~='hr'] q:before,     q[lang~='hr']:before     { content: '\201E'; }
+*[lang~='hr'] q:after,      q[lang~='hr']:after      { content: '\201C'; }
+*[lang~='hr'] q q:before,   q[lang~='hr'] q:before   { content: '\201A'; }
+*[lang~='hr'] q q:after,    q[lang~='hr'] q:after    { content: '\2019'; }
+
+/* Icelandic */
+*[lang~='is'] q:before,     q[lang~='is']:before     { content: '\201E'; }
+*[lang~='is'] q:after,      q[lang~='is']:after      { content: '\201C'; }
+*[lang~='is'] q:before,     q[lang~='is']:before     { content: '\201A'; }
+*[lang~='is'] q:after,      q[lang~='is']:after      { content: '\2018'; }
+
+/* Indonesian */
+*[lang~='id'] q:before,     q[lang~='id']:before     { content: '\201C'; }
+*[lang~='id'] q:after,      q[lang~='id']:after      { content: '\201D'; }
+*[lang~='id'] q q:before,   q[lang~='id'] q:before   { content: '\2018'; }
+*[lang~='id'] q q:after,    q[lang~='id'] q:after    { content: '\2019'; }
+
+/* Irish */
+*[lang~='ga'] q:before,     q[lang~='ga']:before     { content: '\201C'; }
+*[lang~='ga'] q:after,      q[lang~='ga']:after      { content: '\201D'; }
+*[lang~='ga'] q q:before,   q[lang~='ga'] q:before   { content: '\2018'; }
+*[lang~='ga'] q q:after,    q[lang~='ga'] q:after    { content: '\2019'; }
+
+/* Italian */
+*[lang~='it'] q:before,     q[lang~='it']:before     { content: '\00AB'; }
+*[lang~='it'] q:after,      q[lang~='it']:after      { content: '\00BB'; }
+*[lang~='it'] q q:before,   q[lang~='it'] q:before   { content: '\203A'; }
+*[lang~='it'] q q:after,    q[lang~='it'] q:after    { content: '\2039'; }
+*[lang~='it'] q q q:before, q[lang~='it'] q q:before { content: '\2018'; }
+*[lang~='it'] q q q:after,  q[lang~='it'] q q:after  { content: '\2019'; }
+
+/* Latvian */
+*[lang~='lv'] q:before,     q[lang~='lv']:before     { content: '\201E'; }
+*[lang~='lv'] q:after,      q[lang~='lv']:after      { content: '\201C'; }
+*[lang~='lv'] q:before,     q[lang~='lv']:before     { content: '\00AB'; }
+*[lang~='lv'] q:after,      q[lang~='lv']:after      { content: '\00BB'; }
+
+/* Lithuanian */
+*[lang~='lt'] q:before,     q[lang~='lt']:before     { content: '\201E'; }
+*[lang~='lt'] q:after,      q[lang~='lt']:after      { content: '\201C'; }
+*[lang~='lt'] q:before,     q[lang~='lt']:before     { content: '\201A'; }
+*[lang~='lt'] q:after,      q[lang~='lt']:after      { content: '\2018'; }
+
+/* Norwegian */
+*[lang~='no'] q:before,     q[lang~='no']:before     { content: '\00AB'; }
+*[lang~='no'] q:after,      q[lang~='no']:after      { content: '\00BB'; }
+*[lang~='no'] q:before,     q[lang~='no']:before     { content: '\201C'; }
+*[lang~='no'] q:after,      q[lang~='no']:after      { content: '\201C'; }
+
+/* Polish */
+*[lang~='pl'] q:before,     q[lang~='pl']:before     { content: '\201E'; }
+*[lang~='pl'] q:after,      q[lang~='pl']:after      { content: '\201D'; }
+*[lang~='pl'] q q:before,   q[lang~='pl'] q:before   { content: '\00BB'; }
+*[lang~='pl'] q q:after,    q[lang~='pl'] q:after    { content: '\00AB'; }
+
+/* Portuguese */
+*[lang~='pt'] q:before,     q[lang~='pt']:before     { content: '\00AB'; }
+*[lang~='pt'] q:after,      q[lang~='pt']:after      { content: '\00BB'; }
+*[lang~='pt'] q q:before,   q[lang~='pt'] q:before   { content: '\201C'; }
+*[lang~='pt'] q q:after,    q[lang~='pt'] q:after    { content: '\201D'; }
+*[lang~='pt'] q q q:before, q[lang~='pt'] q q:before { content: '\2018'; }
+*[lang~='pt'] q q q:after,  q[lang~='pt'] q q:after  { content: '\2019'; }
+
+/* Romanian */
+*[lang~='ro'] q:before,     q[lang~='ro']:before     { content: '\201E'; }
+*[lang~='ro'] q:after,      q[lang~='ro']:after      { content: '\201C'; }
+*[lang~='ro'] q:before,     q[lang~='ro']:before     { content: '\00AB'; }
+*[lang~='ro'] q:after,      q[lang~='ro']:after      { content: '\00BB'; }
+
+/* Russian */
+*[lang~='ru'] q:before,     q[lang~='ru']:before     { content: '\00AB'; }
+*[lang~='ru'] q:after,      q[lang~='ru']:after      { content: '\00BB'; }
+*[lang~='ru'] q:before,     q[lang~='ru']:before     { content: '\201E'; }
+*[lang~='ru'] q:after,      q[lang~='ru']:after      { content: '\201C'; }
+
+/* Serbian */
+*[lang~='sr'] q:before,     q[lang~='sr']:before     { content: '\201E'; }
+*[lang~='sr'] q:after,      q[lang~='sr']:after      { content: '\201C'; }
+*[lang~='sr'] q q:before,   q[lang~='sr'] q:before   { content: '\2018'; }
+*[lang~='sr'] q q:after,    q[lang~='sr'] q:after    { content: '\2018'; }
+
+/* Slovak */
+*[lang~='sk'] q:before,     q[lang~='sk']:before     { content: '\201E'; }
+*[lang~='sk'] q:after,      q[lang~='sk']:after      { content: '\201C'; }
+*[lang~='sk'] q q:before,   q[lang~='sk'] q:before   { content: '\201A'; }
+*[lang~='sk'] q q:after,    q[lang~='sk'] q:after    { content: '\2018'; }
+
+/* Slovene */
+*[lang~='sl'] q:before,     q[lang~='sl']:before     { content: '\201E'; }
+*[lang~='sl'] q:after,      q[lang~='sl']:after      { content: '\201C'; }
+*[lang~='sl'] q q:before,   q[lang~='sl'] q:before   { content: '\201A'; }
+*[lang~='sl'] q q:after,    q[lang~='sl'] q:after    { content: '\2018'; }
+
+/* Swedish */
+*[lang~='sv'] q:before,     q[lang~='sv']:before     { content: '\201C'; }
+*[lang~='sv'] q:after,      q[lang~='sv']:after      { content: '\201D'; }
+*[lang~='sv'] q q:before,   q[lang~='sv'] q:before   { content: '\2018'; }
+*[lang~='sv'] q q:after,    q[lang~='sv'] q:after    { content: '\2019'; }
+
+/* Thai */
+*[lang~='th'] q:before,     q[lang~='th']:before     { content: '\201C'; }
+*[lang~='th'] q:after,      q[lang~='th']:after      { content: '\201D'; }
+*[lang~='th'] q q:before,   q[lang~='th'] q:before   { content: '\2018'; }
+*[lang~='th'] q q:after,    q[lang~='th'] q:after    { content: '\2019'; }
+
+/* Welsh */
+*[lang~='cy'] q:before,     q[lang~='cy']:before     { content: '\2018'; }
+*[lang~='cy'] q:after,      q[lang~='cy']:after      { content: '\2019'; }
+*[lang~='cy'] q q:before,   q[lang~='cy'] q:before   { content: '\201C'; }
+*[lang~='cy'] q q:after,    q[lang~='cy'] q:after    { content: '\201D'; }
+
+
+q:before { content: open-quote; }
+q:after  { content: close-quote; }
+

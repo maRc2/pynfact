@@ -1,0 +1,39 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ entry.raw_title }}{% endblock %}
+
+{% block body %}
+
+<article class="entry">
+    <header>
+        <h1 class="title">
+            {{ entry.title }}
+            {% if entry.private %}<span class="private">[PRIV]</span>{%- endif -%}
+        </h1>
+        {% if entry.date %}
+        <p class="date">
+            {% trans %}published on{% endtrans %}
+            <time datetime="{{ entry.datehtml }}">{{ entry.date }}</time>
+        {% endif %}
+    </header>
+
+    <section class="entry hyphenate prettify">
+        {{ entry.content }}
+    </section>
+
+    {%- if entry.tags != [''] %}
+    <footer>
+        <p class="tags">
+        {{_("This entry is tagged")}}
+        {% for tag in entry.tags|sort(case_sensitive=true) %}
+            {%- if not loop.first and not loop.last %}, {% endif -%}
+            {%- if loop.last and not loop.first %}{% trans %} and {% endtrans %}{% endif -%}
+            <a rel="tag" href="{{ base_uri }}tags/{{ slugify(tag) }}"
+               title="{{ tag }}">{{ tag }}</a>
+        {%- endfor %}.
+    </footer>
+    {%- endif %}
+
+</article>
+
+{% endblock %}
+

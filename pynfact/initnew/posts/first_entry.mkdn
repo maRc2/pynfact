@@ -1,0 +1,46 @@
+Title: First entry
+Summary: Just as an example
+Date: 2012/10/31
+
+
+Write in the directory `posts`  your posts in Markdown format with the
+matadata header.
+
+Example file:
+
+```
+
+    Title: Post title
+    Summary: A _small_ summary for this *Py'nFact* entry. This summary
+             is way too long, but it doesn't matter.
+    Tags: tag1, tagtwo, tag three, Four
+    Date: 2012/12/21 21:55
+    Comments: No
+    Private: No
+
+
+    Here begins the *post*, in Markdown until the end of the file.
+    Since the level-1 header `h1` is reserved for the title, all
+    subsequent headers should begin in the second level.
+
+    Second level header
+    -------------------
+
+    Or use the short version (`## Second level header`). It's also
+    valid Markdown syntax.
+
+    There is **at least** one blank line between the metadata and the
+    post entry.
+
+    Notes:
+
+      * Only the "Title" and the "Date" are requiered fileds.
+
+      * If you don't want comments for any post, turn off the *Disqus*
+        engine by setting "disqus: no" in the `config.yml` file.
+
+      * The extension of each post **must** be `.mkdn`.
+
+      * Read the full documentation for more information.
+```
+

@@ -1,0 +1,35 @@
+{% extends "base.html.j2" %}
+{% block title %}{% trans %}Tags{% endtrans %}{% endblock %}
+
+{% block body %}
+
+<article class="page">
+    <header>
+        <h1>{% trans %}Tags{% endtrans %}</h1>
+    </header>
+
+    <section class="page hyphenate prettify">
+        {%- if tags %}
+        <ul class="tagcloud">
+            {%- for taginfo in tags %}{%- for tag in taginfo | dictsort %}
+            <li><a href="{{ base_uri}}tags/{{ slugify(tag[0]) }}"
+                   title="{{ tag[0] }}"><span style="font-size: {{ tag[1] }}%;">{{ tag[0] }}</span></a>
+            {%- endfor %}{%- endfor %}
+        </ul>
+        {%- else %}
+        <!-- No tags -->
+        <h2>nichts, nada, niente, nothing, nix, rien, nihil, niks,
+            asgjë, ništa, nic, nič, nimic, noget, niets, nenio, miski,
+            wala, mikään ei, res, semmi, ekkert, nekas, niekas,
+            ingenting, không, 何も, 무, 無, ничего, ништо, ништа,
+            нічога, нічого, ոչինչ, нищо, τίποτα,
+            <span class="rtl">שום דבר</span>,
+            <span class="rtl">لا شيء</span>,
+            Ø, {},...</h2>
+        {%- endif %}
+    </section>
+
+</article>
+
+{% endblock %}
+
