@@ -55,5 +55,5 @@ More information in `LICENSE` file.
 &copy;&nbsp;2012, A.&nbsp;Romero.
 
 
-[pynfact_logo]: https://picasaweb.google.com/lh/photo/LR-s7EBMkTi5W8p4Uxvh45NRzGRERIqgtf-fJhN6VwY?feat=directlink
+[pynfact_logo]: https://lh3.googleusercontent.com/-FUcG8rmOvIw/UIVzI-fi7LI/AAAAAAAAADQ/WVGkil5tJa4/s800/pynfact.png
 
