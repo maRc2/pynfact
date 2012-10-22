@@ -31,8 +31,28 @@ import os
 class Builder:
     """Site building process manager.
     
-    .. todo: Remove redundant code using a universal method for
-             retrieve and gather the data; and use subclasses.
+    .. todo:: Remove redundant code using a universal method for
+              retrieve and gather the data; and use subclasses.
+
+    .. todo:: Manage better with timezones. Make sure if there is no
+              timezone the default is always UTC, for posts info, and
+              both feeds pub. dates.
+
+    .. todo:: Fix the way the variables are passed on the init. Grouping
+              by lists or dictionaries could simplify much the
+              constructor.
+
+              i.e.:
+
+              uri [ 'canonical': 'http://where.my_site.is/', 'base': '' ]
+              wlocale = [ 'locale': "utf-8", 'encoding': "en_US" ]
+              date_fmts = [ 'long': "%c", 'short': '%Y-%M-%D', 'mini': "%B, %Y",
+              site = [ 'name': "My Blog", 'description': "Nice description.",
+                       'author': "Me", 'max_entries': "10", 'feed_fmt': "atom"]
+
+              def __init__(self, uri, wlocale, site, date_fmts,
+                           template_values, extra_dirs, infile_ext,
+                           verbose=True):
     """
 
     def __init__(self, canonical_uri, base_uri='', deploy_dir='_build',
@@ -436,7 +456,6 @@ class Builder:
                 title = meta.title()
                 timezone = 'UTC' if not meta.date('%Z') else meta.date('%Z')
                 date_iso8601 = meta.date('%Y-%m-%dT%H:%M') + timezone
-                print(date_iso8601)
                 updated = datetime.strptime(date_iso8601, \
                         '%Y-%m-%dT%H:%M%Z')
                 uri = link_to(slugify(title),
