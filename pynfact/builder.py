@@ -434,8 +434,9 @@ class Builder:
                 content_html = ml.html(verbose=False)
                 private = meta.private()
                 title = meta.title()
-                date_iso8601 = meta.date('%Y-%m-%dT%H:%M%Z')
-
+                timezone = 'UTC' if not meta.date('%Z') else meta.date('%Z')
+                date_iso8601 = meta.date('%Y-%m-%dT%H:%M') + timezone
+                print(date_iso8601)
                 updated = datetime.strptime(date_iso8601, \
                         '%Y-%m-%dT%H:%M%Z')
                 uri = link_to(slugify(title),
