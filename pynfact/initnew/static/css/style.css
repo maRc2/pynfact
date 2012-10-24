@@ -1,6 +1,6 @@
 /* vim:ft=css:fenc=utf-8:fdm=marker:
  *
- * Default style for Py'nFact static web generator, based on
+ * Default style for PyBLIC static web generator, based on
  * A. Ronacher's personal blog style (BSD 3-cl.)
  *
  * Keywords: simple, one column, light, minimalistic, white, soft, tagcloud
@@ -70,7 +70,7 @@ blockquote {
 
 li { display: list-item; }
 ul li { list-style: disc; }
-ol, dl { margin: 1.12em 0; }
+ol, ul,  dl { margin: 1.12em 0; }
 ol, ul, dd  { margin-left: 40px; }
 ol { list-style-type: decimal; }
 
@@ -313,13 +313,8 @@ dd {
     padding: 0;
 }
 
-
 ol {
     list-style-type: decimal;
-}
-
-ul, ol {
-    margin-left: 40px;
 }
 
 ul ol, ol ul, ul ul, ol ol {
