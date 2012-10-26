@@ -109,11 +109,10 @@ class Meta:
         comments = self.meta.get('comments')    or \
                    self.meta.get('comentarios') or \
                    self.meta.get('comentaris')  or ['']
-        com_bool = True if comments[0].lower() == "yes" or \
-                           comments[0].lower() == "si"  or \
-                           comments[0].lower() == "sí"  or \
-                           comments[0].lower() == "sim"    \
-                        else False
+        com_bool = False if comments[0].lower() == "no" or \
+                            comments[0].lower() == "non"  or \
+                            comments[0].lower() == "não"    \
+                         else True
         return com_bool
 
 

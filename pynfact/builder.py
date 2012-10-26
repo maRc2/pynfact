@@ -181,6 +181,7 @@ class Builder:
                   'title': meta.title(),
                   'raw_title': strip_html_tags(meta.title()),
                   'private': meta.private(),
+                  'comments': meta.comments(),
                   'date': meta.date(date_format),
                   'datehtml': datehtml,
                   'tags': meta.tag_list(),
