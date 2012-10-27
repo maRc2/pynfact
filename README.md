@@ -37,7 +37,8 @@ taken either in GitHub or Google Code.
 First notes
 -----------
 
-This project is in development, so there are some bugs that need to be fixedand it needs to be deployed as a package.
+This project is in development, so there are some bugs that need to be
+fixed and it needs to be deployed as a package.
 
 For usage, configuration and more information read the [GitHub Wiki
 section](https://github.com/alberteromero/pynfact/wiki) associated to
