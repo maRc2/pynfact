@@ -15,7 +15,7 @@
 body {
     background-color: #fff;
     color: #000;
-    font: 17px/25px 'Open Sans', Helvetica, Arial, sans-serif;
+    font: 1em/1.6em 'Open Sans', Helvetica, Arial, sans-serif;
     font-weight: 300;
     margin: 0;
     padding: 0;
@@ -39,7 +39,7 @@ body {
 .acronym, .century, .chapter {
     font-variant: small-caps;
     text-transform: lowercase;
-    font-size: 18px;
+    font-size: 1.125em;
 }
 
 /* Private notice */
@@ -62,8 +62,8 @@ em > em > em { font-style: italic; }
 
 blockquote {
     text-align: justify;
-    font-size: 15.25px;
-    margin: 17px 19px;
+    font-size: 0.85em;
+    margin: 1em 1.25em;
  /* font-size: 0.85em; */
 }
 
@@ -71,7 +71,7 @@ blockquote {
 li { display: list-item; }
 ul li { list-style: disc; }
 ol, ul,  dl { margin: 1.12em 0; }
-ol, ul, dd  { margin-left: 40px; }
+ol, ul, dd  { margin-left: 2.5em; }
 ol { list-style-type: decimal; }
 
 sub { vertical-align: sub }
@@ -128,19 +128,19 @@ section.entry a {
 
 /* Entries overview {{{*/
 div.entry-overview {
-    margin: 25px 125px 25px 100px;
+    margin: 1.5em 8em 1.5em 6.25em;
 }
 
 div.entry-overview strong,
 div.entry-overview div.summary,
 div.entry-overview div.summary p {
     display: inline;
-    line-height: 25px;
+    line-height: 1.5em;
 }
 
 div.entry-overview div.detail strong {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-size: 20px;
+    font-size: 1.25em;
 }
 div.entry-overview div.detail a {
     font-weight: inherit;
@@ -155,18 +155,18 @@ div.entry-overview div.summary p {
 }
 
 div.entry-overview div.detail {
-    margin-left: 140px;
+    margin-left: 8.75em;
 }
 
 div.entry-overview div.date {
     color: #c03;
-    float: left; width: 120px;
-    font-size: 14px;
+    float: left; width: 7.5em;
+    font-size: 0.875em;
     text-align: right;
 }
 
 div.paginator {
-    margin: 36px 0 0 0;
+    margin: 2.25em 0 0 0;
     text-align: center;
 }
 
@@ -176,7 +176,7 @@ div.paginator strong {
 }
 
 div.paginator .separator {
-    margin: 0 12px;
+    margin: 0 0.01em;
 }
 /*}}}*/
 
@@ -198,35 +198,35 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
 
 h1.title {
     margin-bottom: 0;
-    width: 560px;
+    width: 35em;
 }
 
 h1, h2 {
-    margin: 25px 0 10px 0;
+    margin: 1em 0 0.625em 0;
 }
 
 h1 {
-    font-size: 42px;
-    line-height: 52px;
+    font-size: 2.625em;
+    line-height: 1.5em;
 }
 
 h2 {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 2em;
+    line-height: 1.5em;
 }
 /*}}}*/
 
 
 /* Layout elements {{{*/
 div#container {
-    width: 740px;
-    margin: 48px auto;
+    width: 46.5em;
+    margin: 3em auto;
     padding: 0;
 }
 
 div#container > header {
-    height: 25px;
-    margin-bottom: 42px;
+    height: 1.5em;
+    margin-bottom: 2.625em;
 }
 
 div#container > header > div.main_title {
@@ -249,18 +249,18 @@ div#container > header > nav ul {
 
 div#container > header > nav ul li {
     display: inline;
-    margin: 0 2px;
+    margin: 0 0.125em;
     padding: 0;
 }
 
 div#container > section.body  {
     clear: both;
-    margin-bottom: 16px; /* 16px = 1em */
+    margin-bottom: 1em; /* 16px = 1em */
 }
 
 div#container > footer {
     color: #555;
-    font-size: 16px;
+    font-size: 1em;
     text-align: center;
 }
 
@@ -274,42 +274,61 @@ section.entry h3,
 section.entry h4,
 section.entry h5,
 section.entry h6 {
-    margin-top: 16px; /* 16px = 1em */
-    margin-bottom: 5px; /* ~1ex*/
+    margin-top: 1em; /* 16px = 1em */
+    margin-bottom: 0.35em; /* 5px = ~1ex*/
 }
 /*}}}*/
 
 
 /* Blockquotes, lists and other Margins and stuff {{{*/
 /* Two break lines is an context change, i.e. 'asterism' */
-section.entry div.line-block div + div:before {
+section.entry div.line-block:before {
     content: '\2042'; /* asterism (⁂) */
     /* content: '* * *' */
-    margin-top: 0;
+    display: block;
+    margin-top: 0.5em;
+    text-align: center;
+}
+section.entry div.line-block:after {
 }
             
-section.entry div.line-block div + div {
+section.entry div.line-block  {
     border: 0;
     height: auto;
-    margin: 0 0 1em 0; /* <-- correction so this will be *centered* */
+    margin: 0 0 0.5em 0; /* <-- correction so this will be *centered* */
     text-align: center;
     width: auto;
 }
 
 div#disqus_thread {
-    margin-top: 16px; /* 16px = 1em */
+    margin-top: 1em; /* 16px = 1em */
+}
+
+#dsq-content #dsq-comments .dsq-comment-message {
+    font: 1em/1.5em 'Open Sans', Helvetica, Arial, sans-serif !important;
+    font-weight: inherit !important;
 }
 
 
+article + section#comments:before {
+    border-top: 1px dotted #ccc;
+    content: "\2029"; /* Paragraph separator */
+    display: block;
+    text-align: center;
+}
+article + section#comments {
+    margin-top: 2.25em;
+}
+
 dt {
  /* margin: 25px 0 16px 0; */
-    margin: 25px 0 0 0;
+    margin: 1.5em 0 0 0;
     padding: 0;
 }
 
 dd {
  /* margin: 16px 0 25px 40px; */
-    margin: 0 0 25px 40px;
+    margin: 0 0 1.5em 2.5em;
     padding: 0;
 }
 
@@ -318,8 +337,8 @@ ol {
 }
 
 ul ol, ol ul, ul ul, ol ol {
-    margin: 10px 0;
-    padding: 0 0 0 40px;
+    margin: 0.625em 0;
+    padding: 0 0 0 2.5em;
 }
 
 li {
@@ -352,7 +371,7 @@ pre, code, tt   {
                  'Bitstream Vera Sans Mono', 'Monaco', 'Courier New',
                  monospace;
  /* font-size: 15px; */ /* ~0.9em / ~11pt */
-    font-size: 17px;
+    font-size: 1em;
 }
 
 pre {
@@ -375,7 +394,7 @@ table {
 }
 td, th {
     border: 1px solid #ddd;
-    padding: 2px 12px;
+    padding: 0.125em 0.750em;
 }
 /*}}}*/
 
@@ -428,22 +447,22 @@ figure > img.align-left + figcaption {
 
 /* Tags {{{*/
 article.entry p.tags {
-    margin-top: 36px;
+    margin-top: 2.25em;
     text-align: right !important;
     text-indent: 0;
 }
 
 ul.tagcloud {
-    font-size: 16px;
+    font-size: 1em;
     list-style: none;
-    margin: 36px 0;
+    margin: 2.25em 0;
     padding: 0;
 }
 
 ul.tagcloud li {
     display: inline;
     margin: 0;
-    padding: 0 10px;
+    padding: 0 0.625em;
 }
 
 ul.tagcloud a {
@@ -455,7 +474,7 @@ ul.tagcloud a {
 
 /* Footnotes {{{*/
 div.footnote {
-    font-size: 15px;
+    font-size: 0.9em;
 }
 
 sup a {
@@ -509,8 +528,8 @@ hr {
 }
 
 body > div#container > hr {
-    margin-top: 45px;
-    margin-bottom: 5px;
+    margin-top: 2.8em;
+    margin-bottom: 0.35em;
 }
 /*}}}*/
 
