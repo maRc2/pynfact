@@ -222,6 +222,7 @@ class Builder:
                 title = meta.title()
                 summary = meta.summary()
                 date = meta.date(date_format)
+                date_idx = meta.date('%Y-%m-%d %H:%M:%S')
                 uri = link_to(slugify(title),
                         self.entry_link_prefix(filename),
                         makedirs=False, justdir=True)
@@ -230,11 +231,12 @@ class Builder:
                 if not private:
                     total_entries += 1
                     val = { 'title': title, 'summary': summary,
-                            'date': date, 'uri': uri }
+                            'date': date, 'date_idx': date_idx,
+                            'uri': uri }
                     entries.append(val)
 
         # Sort chronologically descent
-        entries = sorted(entries, key=lambda k: k['date'],
+        entries = sorted(entries, key=lambda k: k['date_idx'],
                 reverse=True)
 
         total_pages = ceil(total_entries / max_entries_per_page)
