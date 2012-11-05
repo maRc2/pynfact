@@ -457,6 +457,7 @@ class Builder:
                 content_html = ml.html(verbose=False)
                 private = meta.private()
                 title = meta.title()
+                date_idx = meta.date('%Y-%m-%d %H:%M:%S')
                 timezone = 'UTC' if not meta.date('%Z') else meta.date('%Z')
                 date_iso8601 = meta.date('%Y-%m-%dT%H:%M') + timezone
                 updated = datetime.strptime(date_iso8601, \
@@ -468,11 +469,23 @@ class Builder:
                         self.base_uri, uri)
 
                 if not private:
-                    feed.add(title = strip_html_tags(title),
-                             content = content_html,
-                             author = author,
-                             url = full_uri,
-                             updated = updated)
+                    val = { 'title': strip_html_tags(title),
+                            'content_html': content_html,
+                            'author': author,
+                            'full_uri': full_uri,
+                            'date_idx': date_idx,
+                            'updated': updated }
+                    entries.append(val)
+
+        # sort chronologically descent
+        entries = sorted(entries, key=lambda k: k['date_idx'],
+                reverse=True)
+        for entry in entries:
+            feed.add(title = entry['title'],
+                     content = entry['content_html'],
+                     author = entry['author'],
+                     url = entry['full_uri'],
+                     updated = entry['updated'])
 
         output_file = codecs.open(os.path.join(self.deploy_dir, \
             outfile), mode='w', encoding=self.encoding)
@@ -493,34 +506,43 @@ class Builder:
                 infile = os.path.join(self.entries_dir, filename)
                 ml = Mulang(infile, self.encoding)
                 meta = Meta(ml.metadata())
-
                 content_html = ml.html(verbose=False)
                 private = meta.private()
                 title = meta.title()
                 summary = meta.summary()
-
+                date_idx = meta.date('%Y-%m-%d %H:%M:%S')
                 # Date+time in RFC-822 format. fixing lack of timezone
                 # when there's none (UTC by default).
                 timezone = '+0000' if not meta.date('%z') \
                                    else meta.date('%z')
                 pub_date = meta.date('%a, %d %b %Y %H:%M:%S') + \
                         " " + timezone
-
                 uri = link_to(slugify(title),
                         self.entry_link_prefix(filename),
                         makedirs=False, justdir=True)
-
                 full_uri = os.path.join(self.canonical_uri,
                         self.base_uri, uri)
                 if not private:
-                    entries.append(
-                            RSS2.RSSItem(
-                                title = strip_html_tags(title),
-                                link = full_uri,
-                                #description = summary,
-                                description = content_html,
-                                guid = RSS2.Guid(full_uri),
-                                pubDate = pub_date))
+                    val = { 'title': strip_html_tags(title),
+                            'content_html': content_html,
+                            #'summary': summary,
+                            'full_uri': full_uri,
+                            'date_idx': date_idx,
+                            'pub_date': pub_date }
+                    entries.append(val)
+
+        # sort chronologically descent
+        entries = sorted(entries, key=lambda k: k['date_idx'],
+                reverse=True)
+        for entry in entries:
+            entries.append(
+                    RSS2.RSSItem(
+                        title = entry['title'],
+                        link = entry['full_uri'],
+                        #description = entry['summary'],
+                        description = entry['content_html'],
+                        guid = RSS2.Guid(entry['full_uri']),
+                        pubDate = entry['pub_date']))
 
         rss = RSS2.RSS2(
                 title = self.site_name if self.site_name \
