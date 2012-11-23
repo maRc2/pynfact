@@ -223,7 +223,7 @@ class Builder:
                 summary = meta.summary()
                 date = meta.date(date_format)
                 date_idx = meta.date('%Y-%m-%d %H:%M:%S')
-                uri = link_to(slugify(title),
+                uri = link_to(slugify(strip_html_tags(title)),
                         self.entry_link_prefix(filename),
                         makedirs=False, justdir=True)
 
