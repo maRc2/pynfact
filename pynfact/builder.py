@@ -186,7 +186,7 @@ class Builder:
                   'datehtml': datehtml,
                   'tags': meta.tag_list(),
                   'content': content_html }
-        outfile = link_to(slugify(meta.title()),
+        outfile = link_to(slugify(strip_html_tags(meta.title())),
                 os.path.join(self.deploy_dir,
                     self.entry_link_prefix(infile)))
         return self.render_template('entry.html.j2', outfile, values)
