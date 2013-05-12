@@ -29,7 +29,7 @@
             {%- if loop.last and not loop.first %}{% trans %} and {% endtrans %}{% endif -%}
             <a rel="tag" href="{{ base_uri }}tags/{{ slugify(tag) }}"
                title="{{ tag }}">{{ tag }}</a>
-        {%- endfor %}.
+        {%- endfor %}
     </footer>
     {%- endif %}
 </article>
