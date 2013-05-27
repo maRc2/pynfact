@@ -287,7 +287,7 @@ class Builder:
                 date_info = meta.date_info()
                 date_idx = meta.date('%Y-%m-%d')
                 comments = meta.comments()
-                uri = link_to(slugify(title),
+                uri = link_to(slugify(strip_html_tags(title)),
                         self.entry_link_prefix(filename),
                         makedirs=False, justdir=True)
 
@@ -334,7 +334,7 @@ class Builder:
                 tag_list = meta.tag_list()
                 date = meta.date(date_format)
                 date_idx = meta.date('%Y-%m-%d')
-                uri = link_to(slugify(title),
+                uri = link_to(slugify(strip_html_tags(title)),
                         self.entry_link_prefix(filename),
                         makedirs=False, justdir=True)
 
