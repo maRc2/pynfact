@@ -16,7 +16,7 @@
         <ul>
             {%- for entry in entries %}
             <li><a href="{{ base_uri}}{{ entry.uri }}"
-                   title="{{ entry.title }}">{{ entry.title }}</a>,
+                   title="{{ entry.title | striptags }}">{{ entry.title }}</a>,
                 <!-- {% trans %}published on{% endtrans %} -->
                 {{ entry.date }}
             {%- endfor %}

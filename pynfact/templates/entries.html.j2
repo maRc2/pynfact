@@ -11,7 +11,7 @@
             <div class="date">{{ entry.date }}</div>
             <div class="detail">
                 <a href=" {{entry.uri }}"
-                   title="{{ entry.title }}"
+                   title="{{ entry.title | striptags }}"
                    ><strong>{{ entry.title }}</strong></a>
                {%- if entry.summary %}
                &mdash; <div class="summary">{{ entry.summary }}</div>
