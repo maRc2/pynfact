@@ -14,7 +14,7 @@
     :license: 3-clause license ("Modified BSD License")
 """
 from jinja2 import Environment, FileSystemLoader, Markup
-import PyRSS2Gen as RSS2
+#import PyRSS2Gen as RSS2
 from pyatom import AtomFeed
 import codecs
 import gettext
@@ -224,7 +224,8 @@ class Builder:
                 date = meta.date(date_format)
                 date_idx = meta.date('%Y-%m-%d %H:%M:%S')
                 uri = link_to(slugify(strip_html_tags(title)),
-                        self.entry_link_prefix(filename),
+                        os.path.join('/', self.base_uri,
+                            self.entry_link_prefix(filename)),
                         makedirs=False, justdir=True)
 
                 # Generate archive
@@ -492,71 +493,71 @@ class Builder:
         output_file.write(feed.to_string())
 
 
-    def gen_feed_rss(self, outfile='feed.xml'):
-        """Generate blog feed.
-
-        .. todo: Why I cannot do this without changing the locale?
-        """
-        # This doesn't work in another locale, will be restored
-        locale.setlocale(locale.LC_ALL, "en_US")
-
-        entries = list()
-        for filename in os.listdir(self.entries_dir):
-            if os.path.splitext(filename)[1] == self.infile_ext:
-                infile = os.path.join(self.entries_dir, filename)
-                ml = Mulang(infile, self.encoding)
-                meta = Meta(ml.metadata())
-                content_html = ml.html(verbose=False)
-                private = meta.private()
-                title = meta.title()
-                summary = meta.summary()
-                date_idx = meta.date('%Y-%m-%d %H:%M:%S')
-                # Date+time in RFC-822 format. fixing lack of timezone
-                # when there's none (UTC by default).
-                timezone = '+0000' if not meta.date('%z') \
-                                   else meta.date('%z')
-                pub_date = meta.date('%a, %d %b %Y %H:%M:%S') + \
-                        " " + timezone
-                uri = link_to(slugify(title),
-                        self.entry_link_prefix(filename),
-                        makedirs=False, justdir=True)
-                full_uri = os.path.join(self.canonical_uri,
-                        self.base_uri, uri)
-                if not private:
-                    val = { 'title': strip_html_tags(title),
-                            'content_html': content_html,
-                            #'summary': summary,
-                            'full_uri': full_uri,
-                            'date_idx': date_idx,
-                            'pub_date': pub_date }
-                    entries.append(val)
-
-        # sort chronologically descent
-        entries = sorted(entries, key=lambda k: k['date_idx'],
-                reverse=True)
-        for entry in entries:
-            entries.append(
-                    RSS2.RSSItem(
-                        title = entry['title'],
-                        link = entry['full_uri'],
-                        #description = entry['summary'],
-                        description = entry['content_html'],
-                        guid = RSS2.Guid(entry['full_uri']),
-                        pubDate = entry['pub_date']))
-
-        rss = RSS2.RSS2(
-                title = self.site_name if self.site_name \
-                                       else self.canonical_uri,
-                description = "RSS",
-                link = self.canonical_uri,
-                lastBuildDate = datetime.now(),
-                items = entries
-                )
-
-        rss.write_xml(open(os.path.join(self.deploy_dir, outfile), 'w'),
-                self.encoding)
-        # Restore locale
-        locale.setlocale(locale.LC_ALL, self.wlocale)
+#    def gen_feed_rss(self, outfile='feed.xml'):
+#        """Generate blog feed.
+#
+#        .. todo: Why I cannot do this without changing the locale?
+#        """
+#        # This doesn't work in another locale, will be restored
+#        locale.setlocale(locale.LC_ALL, "en_US")
+#
+#        entries = list()
+#        for filename in os.listdir(self.entries_dir):
+#            if os.path.splitext(filename)[1] == self.infile_ext:
+#                infile = os.path.join(self.entries_dir, filename)
+#                ml = Mulang(infile, self.encoding)
+#                meta = Meta(ml.metadata())
+#                content_html = ml.html(verbose=False)
+#                private = meta.private()
+#                title = meta.title()
+#                summary = meta.summary()
+#                date_idx = meta.date('%Y-%m-%d %H:%M:%S')
+#                # Date+time in RFC-822 format. fixing lack of timezone
+#                # when there's none (UTC by default).
+#                timezone = '+0000' if not meta.date('%z') \
+#                                   else meta.date('%z')
+#                pub_date = meta.date('%a, %d %b %Y %H:%M:%S') + \
+#                        " " + timezone
+#                uri = link_to(slugify(title),
+#                        self.entry_link_prefix(filename),
+#                        makedirs=False, justdir=True)
+#                full_uri = os.path.join(self.canonical_uri,
+#                        self.base_uri, uri)
+#                if not private:
+#                    val = { 'title': strip_html_tags(title),
+#                            'content_html': content_html,
+#                            #'summary': summary,
+#                            'full_uri': full_uri,
+#                            'date_idx': date_idx,
+#                            'pub_date': pub_date }
+#                    entries.append(val)
+#
+#        # sort chronologically descent
+#        entries = sorted(entries, key=lambda k: k['date_idx'],
+#                reverse=True)
+#        for entry in entries:
+#            entries.append(
+#                    RSS2.RSSItem(
+#                        title = entry['title'],
+#                        link = entry['full_uri'],
+#                        #description = entry['summary'],
+#                        description = entry['content_html'],
+#                        guid = RSS2.Guid(entry['full_uri']),
+#                        pubDate = entry['pub_date']))
+#
+#        rss = RSS2.RSS2(
+#                title = self.site_name if self.site_name \
+#                                       else self.canonical_uri,
+#                description = "RSS",
+#                link = self.canonical_uri,
+#                lastBuildDate = datetime.now(),
+#                items = entries
+#                )
+#
+#        rss.write_xml(open(os.path.join(self.deploy_dir, outfile), 'w'),
+#                self.encoding)
+#        # Restore locale
+#        locale.setlocale(locale.LC_ALL, self.wlocale)
 
 
     def gen_static(self):
