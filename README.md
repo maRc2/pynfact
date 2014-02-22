@@ -51,7 +51,7 @@ License
 *Py'nFact* is distributed under 3-Clause BSD (New BSD License).
 More information in `LICENSE` file.
 
-&copy;&nbsp;2012–2013, A.&nbsp;Romero.
+&copy;&nbsp;2012–2014, A.&nbsp;Romero.
 
 
 [pynfact_logo]: https://lh3.googleusercontent.com/-FUcG8rmOvIw/UIVzI-fi7LI/AAAAAAAAADQ/WVGkil5tJa4/s800/pynfact.png
